@@ -24,10 +24,10 @@ module.exports = defineConfig({
 		headless: true
 	},
 	experimentalCspAllowList: ["frame-src"],
-	retries: {
-		openMode: 1,
-		runMode: 1
-	},
+	// retries: {
+	// 	openMode: 1,
+	// 	runMode: 1
+	// },
 	experimentalStudio: true,
 	viewportHeight: 720,
 	viewportWidth: 1280,

@@ -1,3 +1,4 @@
+const {futureDate} = require('../../helpers.js');
 describe('We can search ',()=>{
     it('search destination', function () {
         cy.visit(Cypress.config('PHPTRAVELS'))
@@ -12,7 +13,7 @@ describe('We can search ',()=>{
             const randomOption = Math.floor(Math.random()*des2.length)+1
             cy.get(`.most--popular-to > :nth-child(${randomOption})`).click()
         })
-        cy.get('#departure[value = "24-05-2024"]').type('{selectall}{backspace}24-05-2024')
+        cy.get('#departure').type(`{selectall}{backspace}${futureDate()}`)
         cy.get('.col-lg-1 > #flights-search').click();
     })
 })

@@ -30,10 +30,7 @@ Cypress.Commands.add('randomSelect',(element)=>{
   .then(function (dom) {
     console.log("🚀 ~ dom:", dom[0])
     const options = Array.from(dom[0].options);
-    console.log("🚀 ~ options:", options)
-    const nahodne = options[Math.floor(Math.random() * options.length)].value;
-    console.log("🚀 ~ nahodne:", nahodne)
-    cy.get(dom).select(nahodne);
+    const random = options[Math.floor(Math.random() * options.length)].value;
 });
 })
 // -- This is a child command --
