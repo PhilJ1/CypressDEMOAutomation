@@ -25,14 +25,6 @@ Cypress.Commands.add('fakeData',(url) => {
       }
     })
 });
-Cypress.Commands.add('randomSelect',(element)=>{
-  cy.get(element).click()
-  .then(function (dom) {
-    console.log("🚀 ~ dom:", dom[0])
-    const options = Array.from(dom[0].options);
-    const random = options[Math.floor(Math.random() * options.length)].value;
-});
-})
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
 //

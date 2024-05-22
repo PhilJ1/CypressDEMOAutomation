@@ -7,7 +7,7 @@ const futureDate = ()=>{
     const date = new Date();
     date.setDate(date.getDate() + Math.floor(Math.random() * 10+1))
     date.setMonth(date.getMonth() + Math.floor(Math.random()*3+1))
-    const dateRand = new Intl.DateTimeFormat('sk-SK',options).format(date).replaceAll('. ','-').replace('.','')
+    const dateRand = new Intl.DateTimeFormat('sk-SK',options).format(date).replace(/\./g, '-')
     return dateRand
   }
   module.exports = {futureDate}
