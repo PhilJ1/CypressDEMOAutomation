@@ -25,6 +25,8 @@ describe('We can search ',()=>{
         })
 
         cy.get('.col-lg-1 > #flights-search').click();
+        cy.get('#flights--list-js').next().children().as('searchedFlightsList')
+        console.log(cy.get('@searchedFlightsList'));
     })
     it('We get no flights',function() {
         cy.continueOnFail()
