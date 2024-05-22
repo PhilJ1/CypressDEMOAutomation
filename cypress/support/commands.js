@@ -25,6 +25,12 @@ Cypress.Commands.add('fakeData',(url) => {
       }
     })
 });
+Cypress.Commands.add('continueOnFail',()=>{
+  cy.on('fail',(err,runnable)=>{
+    cy.log(err.message);
+    return false;
+  })
+})
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
 //
