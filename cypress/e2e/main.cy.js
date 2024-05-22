@@ -23,4 +23,7 @@ describe('We can search ',()=>{
             expect(img).to.have.attr('src').that.equals('https://www.phptravels.net/assets/img/no_img.webp')
         })
     })
+    it('Getting a hotel',()=>{
+        
+    })
 })

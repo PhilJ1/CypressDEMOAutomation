@@ -1,6 +1,7 @@
 const {defineConfig} = require('cypress');
 const dotenv = require('cypress-plugin-dotenv');
-const prostredia = require('./prostredia.js');
+const environments = require('./environments.js');
+console.log("🚀 ~ environments:", environments)
 module.exports = defineConfig({
 	projectId: 'zaqmt4',
 	e2e: {
@@ -18,7 +19,7 @@ module.exports = defineConfig({
 		}
 		return launchOptions
       })
-	  	return config.env.configFile = prostredia
+	  	return config.env.configFile = environments
 		},
 		testIsolation: true,
 		headless: true
