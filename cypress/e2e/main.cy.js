@@ -25,7 +25,7 @@ describe('We can search ',()=>{
 
         cy.get('.col-lg-1 > #flights-search').click();
     })
-    it.only('We get no flights',function() {
+    it('We get no flights',function() {
         fillSearchData();
         cy.get(`#flight_type`).select(1)
         cy.get('.col-lg-1 > #flights-search').click();
