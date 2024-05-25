@@ -1,8 +1,10 @@
-const {futureDate, fillSearchData} = require('../../helpers.js');
+const {futureDate, fillSearchData} = require('../../src/helpers.js');
 describe('We can search ',()=>{
     it('search destination', function () {
         cy.continueOnFail()
         fillSearchData();
+        cy.getCompany()
+        // getPerson();
         cy.get('#flight_type').children().then( (type) =>{
             const randomOption = Math.floor(Math.random()*type.length)
             cy.get(`#flight_type`).select(randomOption)
@@ -10,7 +12,6 @@ describe('We can search ',()=>{
 
         cy.get('.col-lg-1 > #flights-search').click();
         cy.get('#flights--list-js').next().next().children().as('searchedFlightsList')
-        console.log(cy.get('@searchedFlightsList'));
     })
     it('We get no flights',function() {
         cy.continueOnFail()

@@ -1,7 +1,6 @@
 const {defineConfig} = require('cypress');
 const dotenv = require('cypress-plugin-dotenv');
-const environments = require('./environments.js');
-console.log("🚀 ~ environments:", environments)
+const environments = require('./src/environments.js');
 module.exports = defineConfig({
 	projectId: 'zaqmt4',
 	e2e: {

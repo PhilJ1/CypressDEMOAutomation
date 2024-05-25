@@ -13,6 +13,7 @@
 // Cypress.Commands.add('login', (email, password) => { ... })
 //
 //
+import {BASEFAKERURL} from '../../src/environments'
 Cypress.Commands.add('fakeData',(url) => {
     cy.request(BASEFAKERURL + url).then(response =>{
         if(response.status === 200) return response
