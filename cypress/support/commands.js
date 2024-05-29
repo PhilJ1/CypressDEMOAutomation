@@ -14,6 +14,7 @@
 //
 //
 import {BASEFAKERURL} from '../../src/environments'
+const formView = require('../../src/views/formView');
 Cypress.Commands.add('fakeData',(url) => {
     cy.request(BASEFAKERURL + url).then(response =>{
         if(response.status === 200) return response
@@ -26,6 +27,7 @@ Cypress.Commands.add('fakeData',(url) => {
       }
     })
 });
+Cypress.Commands.add('formDataValidator',()=>formView)
 Cypress.Commands.add('continueOnFail',()=>{
   cy.on('fail',(err,runnable)=>{
     cy.log(err.message);
