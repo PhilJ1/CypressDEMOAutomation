@@ -11,9 +11,13 @@ module.exports = defineConfig({
 			case 'chrome':
 				launchOptions.args.push('--no-sandbox')
 				launchOptions.args.push('--auto-open-devtools-for-tabs')
+				launchOptions.args.push('--start-fullscreen')
 				break;
-		
+			case 'edge':
+				break;
 			default:
+				//electron
+				console.log('default');
 				break;
 		}
 		return launchOptions

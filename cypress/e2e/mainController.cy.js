@@ -1,9 +1,12 @@
 const {futureDate, fillSearchData} = require('../../src/helpers.js');
 describe('We can search ',()=>{
-    it('search destination', function () {
+    it('search destination', async function () {
         cy.continueOnFail()
         fillSearchData();
-        cy.getCompany()
+        await cy.getCompany()
+        console.log(Cypress.env('firmaData'));
+        const cyOBj = Cypress.env()
+        console.log("🚀 ~ cyOBj:", cyOBj)
         // getPerson();
         cy.get('#flight_type').children().then( (type) =>{
             const randomOption = Math.floor(Math.random()*type.length)
