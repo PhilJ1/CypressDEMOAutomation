@@ -1,28 +1,30 @@
-const {defineConfig} = require('cypress');
+const {
+	defineConfig
+} = require('cypress');
 const dotenv = require('cypress-plugin-dotenv');
 const environments = require('./src/environments.js');
 module.exports = defineConfig({
 	projectId: 'zaqmt4',
 	e2e: {
-    testIsolation:true,
+		testIsolation: true,
 		setupNodeEvents(on, config) {
-      on('before:browser:launch', (browser = {}, launchOptions) => {
-		switch (browser.name) {
-			case 'chrome':
-				launchOptions.args.push('--no-sandbox')
-				launchOptions.args.push('--auto-open-devtools-for-tabs')
-				launchOptions.args.push('--start-fullscreen')
-				break;
-			case 'edge':
-				break;
-			default:
-				//electron
-				console.log('default');
-				break;
-		}
-		return launchOptions
-      })
-	  	return config.env.configFile = environments
+			on('before:browser:launch', (browser = {}, launchOptions) => {
+				switch (browser.name) {
+					case 'chrome':
+						launchOptions.args.push('--no-sandbox')
+						launchOptions.args.push('--auto-open-devtools-for-tabs')
+						launchOptions.args.push('--start-fullscreen')
+						break;
+					case 'edge':
+						break;
+					default:
+						//electron
+						console.log('default');
+						break;
+				}
+				return launchOptions
+			});
+			return config.env.configFile = environments
 		},
 		testIsolation: true,
 		headless: true
@@ -40,6 +42,6 @@ module.exports = defineConfig({
 	video: true,
 	watchForFileChanges: true,
 	experimentalFetchPolyfill: true,
-	trashAssetsBeforeRuns:true,
-  	scrollBehavior:'nearest',
+	trashAssetsBeforeRuns: true,
+	scrollBehavior: 'nearest',
 });
