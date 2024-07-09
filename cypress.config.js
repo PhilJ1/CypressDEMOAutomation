@@ -4,7 +4,7 @@ const {
 const dotenv = require('cypress-plugin-dotenv');
 const environments = require('./src/environments.js');
 module.exports = defineConfig({
-	projectId: 'zaqmt4',
+	projectId: 'p6in2t',
 	e2e: {
 		testIsolation: true,
 		setupNodeEvents(on, config) {
