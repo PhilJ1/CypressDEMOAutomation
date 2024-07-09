@@ -1,7 +1,7 @@
 import example from '../fixtures/example.json';
 describe('intercepting', () => {
     it('We intercept', () => {
-      cy.fixtures('examples')
+      // cy.fixtures('examples')
         cy.intercept(
             {
               method: 'GET', 
