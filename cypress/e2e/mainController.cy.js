@@ -71,11 +71,20 @@ describe('Search hotels', () => {
                 //.wait(2000)
                 .should('exist')
                 .type('{enter}')
-                cy.get('button[type="submit"]').click();
+                cy.get('button[type="submit"]').click()
                 cy.get('.row.g-3.append_template.justify-content-md-center')
                 .should((results)=>{
                     expect(results).to.have.length(1);
                     expect(results).to.not.have.descendants()
                 })
+    })
+    it('All viewports?',()=>{
+        const sizes = ['iphone-6', 'ipad-2','iphone-3','iphone-5','samsung-s10','iphone-4',[1024, 768],[1280, 720],[1360, 768],[1600, 900],
+        'macbook-16', 'macbook-15', 'macbook-13', 'macbook-11', 'ipad-2', 'ipad-mini', 'iphone-xr', 'iphone-x', 'iphone-6+'
+        , 'iphone-se2', 'iphone-8', 'iphone-7', 'samsung-note9']
+        sizes.forEach((devSize)=>{
+            Array.isArray(devSize) && cy.viewport(...devSize);
+            typeof devSize === 'string' && cy.viewport(devSize);            
+        })
     })
 })
